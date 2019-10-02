@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: position-simulator
-        image: ${REPOSITORY_TAG}
+        image: position-simulator
         env:
         - name: SPRING_PROFILES_ACTIVE
           value: production-microservice
