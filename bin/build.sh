@@ -6,7 +6,6 @@ for docker in $(find ./ -name Dockerfile); do
   (cd $name && docker build -t ${name#./} .)
   sudo usermod -aG docker $USER
   $(aws ecr get-login --no-include-email --region ap-south-1)
-  aws ecr create-repository --repository-name ${name#./} --image-tag-mutability IMMUTABLE
-  docker tag ${name#./}:latest 580572941932.dkr.ecr.ap-south-1.amazonaws.com/${name#./}:latest
-  docker push 580572941932.dkr.ecr.ap-south-1.amazonaws.com/${name#./}:latest
+  docker tag ${name#./}:latest 580572941932.dkr.ecr.ap-south-1.amazonaws.com/cloudenablers/${name#./}:latest
+  docker push 580572941932.dkr.ecr.ap-south-1.amazonaws.com/cloudenablers/${name#./}:latest
 done
